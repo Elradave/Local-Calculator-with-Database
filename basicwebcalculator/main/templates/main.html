@@ -1,0 +1,18 @@
+{% load crispy_forms_tags %}
+
+<form method="post" style="margin-top: 50px">
+  {% csrf_token %} {{form|crispy}}
+  <button type="submit" class="btn btn-success">Calculate</button>
+</form>
+
+{% if request.method == 'POST' %}
+<h4>{{ first_number }} {{operation}} {{ second_number }} = {{ans}}</h4>
+{% endif %}
+
+<strong>History:
+</strong>
+{% for values in history %}
+<li>{{ values.first_number }} {{values.operation}} {{ values.second_number }} = {{ values.ans }}</li>
+  {% empty %}
+  No history Yet :(
+  {% endfor %}
