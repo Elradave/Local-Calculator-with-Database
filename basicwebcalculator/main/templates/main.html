@@ -11,8 +11,8 @@
 
 <strong>History:
 </strong>
-{% for values in history %}
-<li>{{ values.first_number }} {{values.operation}} {{ values.second_number }} = {{ values.ans }}</li>
+{% for value in history %}
+<li>{{ value.first_number }} {{value.operation}} {{ value.second_number }} = {{ value.ans }}</li>
   {% empty %}
   No history Yet :(
   {% endfor %}
